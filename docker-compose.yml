@@ -26,7 +26,7 @@ services:
       - 50000:50000
     volumes:
       - ./jenkins:/var/jenkins_home
-      - /usr/bin/docker_in_docker:/usr/bin/docker_in_docker
+      - /usr/bin/docker:/usr/bin/docker
     environment:
       DOCKER_HOST: "tcp://docker_in_docker:2375"
     networks:
