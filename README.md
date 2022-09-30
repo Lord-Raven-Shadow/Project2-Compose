@@ -31,7 +31,7 @@ This repository contains the docker-compose.yml file which:
 
 ## How to Uninstall
 1. To bring it all down use the command, ```docker compose down```
-2. Use docker rm command to remove containers.
+2. Use ```docker rm <container ID> ``` * *(to stop ```docker stop <container ID>```)* * and similar commands to remove containers.
 3. Delete unwanted files.
 
 
