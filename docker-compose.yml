@@ -1,7 +1,8 @@
 #Reference https://www.tiuweehan.com/blog/2020-09-10-docker-in-jenkins-in-docker/
 version: '3.7'
 services:
-  dind:
+
+  docker_in_docker:
     image: docker:dind
     user: root
     privileged: true
@@ -16,7 +17,7 @@ services:
   jenkins:
     image: jenkins/jenkins:lts
     user: root
-    container_name: jenkins_in_docker
+    container_name: jenkins
     depends_on:
       - docker_in_docker
     ports:
@@ -24,9 +25,9 @@ services:
       - 50000:50000
     volumes:
       - ./jenkins:/var/jenkins_home
-      - /usr/bin/docker:/usr/bin/docker
+      - /usr/bin/docker_in_docker:/usr/bin/docker
     environment:
-      DOCKER_HOST: "tcp://dind:2375"
+      DOCKER_HOST: "tcp://docker_in_docker:2375"
     networks:
       - jenkins_docker_in_docker
 
