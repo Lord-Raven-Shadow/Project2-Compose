@@ -46,6 +46,7 @@ This assignment was made possible by referring to the following references for i
 - CloudBeesTV. "How to Use Docker Compose with Jenkins." YouTube, 29 September 2022 2022. https://www.youtube.com/watch?v=ZPD_PzGOvFM&ab_channel=CloudBeesTV.
 - Coach, DevOps. YouTube, 29 September 2022 2022. https://www.youtube.com/watch?v=OSJr-BMg2YQ&ab_channel=DevOpsCoach.
 - Dane, Mike. "Yaml | in One Video." YouTube, 29 September 2022 2017. https://www.youtube.com/watch?v=cdLNKUoMc6c&ab_channel=MikeDane.
+- "Jenkins-Example-Docker/Jenkinsfile-1." 2021, accessed 28 September 2022, 2022, https://github.com/darinpope/jenkins-example-docker/blob/main/Jenkinsfile-1.
 - "Run Jenkins in Docker Using Docker Compose with Persistent Volumes." Digital Avenue, 2021, accessed 29 September 2022, 2022, https://digitalavenue.dev/Run-Jenkins-On-Docker-Compose/.
 - "Get Started with Docker Compose." accessed 29 September 2022, https://docs.docker.com/compose/gettingstarted/.
 - "Basic Writing and Formatting Syntax." 2022, accessed 30 September 2022, 2022, https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax.
