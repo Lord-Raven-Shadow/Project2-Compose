@@ -5,20 +5,20 @@ services:
     image: docker:dind
     user: root
     privileged: true
-    container_name: dind
+    container_name: docker_in_docker
     expose:
       - 2375
     networks:
-      - jenkins_dind
+      - jenkins_docker_in_docker
     environment:
       DOCKER_TLS_CERTDIR: ""
 
   jenkins:
     image: jenkins/jenkins:lts
     user: root
-    container_name: jenkins
+    container_name: jenkins_in_docker
     depends_on:
-      - dind
+      - docker_in_docker
     ports:
       - 8080:8080
       - 50000:50000
@@ -28,8 +28,8 @@ services:
     environment:
       DOCKER_HOST: "tcp://dind:2375"
     networks:
-      - jenkins_dind
+      - jenkins_docker_in_docker
 
 networks:
-  jenkins_dind:
+  jenkins_docker_in_docker:
     driver: bridge
