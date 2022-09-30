@@ -23,14 +23,14 @@ This repository contains the docker-compose.yml file which:
 			https://docs.docker.com/engine/install/linux-postinstall/
 
 	4. If the requirements are met, open a terminal in your cloned github repository directory.
-	5. Use the follong command in a terminal, "docker compose up".
-	6. Follow the propmts, check <IP/ localhost>:8080 and use the key in order to use Jenkins.
+	5. Use the follong command in a terminal, "'docker compose up'".
+	6. Follow the propmts, in a browser, go to '<IP/ localhost>:8080' and use the key in order to use Jenkins.
 	7. Follow the prompts in setting Jenkins up.
 
 
 ## How to Uninstall
 
-	1. To bring it all down use the command, docker compose down.
+	1. To bring it all down use the command, 'docker compose down'.
 	2. Use docker rm command to remove containers.
 	3. Delete unwanted files.
 
