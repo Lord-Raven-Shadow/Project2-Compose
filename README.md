@@ -14,13 +14,13 @@ This repository contains the docker-compose.yml file which:
 2. Clone the repository - Click on code (green box), then click on HTTPS copy the link and in your terminal use the command - ```git clone <HTTPS url>```
 3. Check if you meet the requirements to use the docker-compose.yml, the following requirements must be met.
 
-a. Environment that supports it.
-b. Latest Docker installed.
-c. Latest Docker Compose installed.
+	a. Environment that supports it.
+	b. Latest Docker installed.
+	c. Latest Docker Compose installed.
 
 References (Ubuntu): 			
-[Install Docker](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
-[Post Install Steps](https://docs.docker.com/engine/install/linux-postinstall/)
+	[Install Docker](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+	[Post Install Steps](https://docs.docker.com/engine/install/linux-postinstall/)
 
 4. If the requirements are met, open a terminal in your cloned github repository directory.
 5. Use the follong command in a terminal, ```docker compose up```
