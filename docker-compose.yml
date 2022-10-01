@@ -21,7 +21,7 @@ services:
   jenkins:
     container_name: jenkins
     depends_on:
-      - dind
+      - docker_in_docker
     image: jenkins/jenkins:lts-jdk11
     user: root
     restart: unless-stopped
