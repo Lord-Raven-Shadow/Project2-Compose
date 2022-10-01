@@ -7,14 +7,10 @@ services:
     user: root
     privileged: true
     restart: unless-stopped
-    expose:
-      - 2376
     networks:
       jenkins-network:
         aliases:
           - docker
-    ports:
-      - 2376:2376
     volumes:
       - data:/var/jenkins_home
       - certs:/certs/client
@@ -25,7 +21,7 @@ services:
     container_name: jenkins
     depends_on:
       - dind
-    image: jenkins/jenkins:lts
+    image: jenkins/jenkins:lts-jdk11
     user: root
     restart: unless-stopped
     networks:
@@ -37,13 +33,14 @@ services:
       - data:/var/jenkins_home
       - certs:/certs/client:ro
     environment:
-      - DOCKER_HOST=tcp://dind:2376
+      - DOCKER_HOST=tcp://docker:2376
       - DOCKER_CERT_PATH=/certs/client
       - DOCKER_TLS_VERIFY=1
  
 networks:
   jenkins-network:
     name: jenkins
+    
 volumes:
   data:
     name: jenkins-data
