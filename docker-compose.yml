@@ -5,6 +5,7 @@ services:
     user: root
     privileged: true
     container_name: dind
+    alias: test_dind
     expose:
       - 2376
     networks:
@@ -17,7 +18,7 @@ services:
     user: root
     container_name: jenkins
     depends_on:
-      - dind
+      - docker_in_docker
     ports:
       - 8080:8080
       - 50000:50000
@@ -25,7 +26,7 @@ services:
       - ./jenkins:/var/jenkins_home
       - /usr/bin/docker:/usr/bin/docker
     environment:
-      DOCKER_HOST: "tcp://dind:2376"
+      DOCKER_HOST: "tcp://test_dind:2376"
     networks:
       - jenkins_dind
 
