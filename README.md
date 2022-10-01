@@ -8,7 +8,7 @@ This repository contains the docker-compose.yml file which:
 1. run a Docker-In-Docker (dind) container.
 2. A Jenkins container which uses the dind container to run a Jenkin pipeline.
 
-## HOW To Install
+## HOW To Install and Use
 
 1. Fork the repository to your own repo.
 2. Clone the repository - Click on code (green box), then click on HTTPS copy the link and in your terminal use the command - ```git clone <HTTPS url>```
@@ -23,11 +23,18 @@ This repository contains the docker-compose.yml file which:
 		- [Install Docker](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 		- [Post Install Steps](https://docs.docker.com/engine/install/linux-postinstall/)
 
-4. If the requirements are met, open a terminal in your cloned github repository directory.
+4. If the requirements are met, open a terminal and go to your cloned github repository directory.
 5. Use the follong command in a terminal, ```docker compose up```
 6. Follow the propmts, in a browser, go to ```IP/ localhost>:8080``` and use the key in order to use Jenkins.
 7. Follow the prompts in setting Jenkins up.
+9. Once Jenkins is up, install the following plugins by going to "Manage Jenkins > Manage Plugins (under System Configuration)", remember to check if they are already installed, else click on Available and search of the needed plugins  and install them.
 
+	-  ```Docker```
+    	-  ```Docker Pipeline```
+
+10. Try using the Jenkins pipeline. 
+	- This [repo]( https://github.com/Lord-Raven-Shadow/aws-elastic-beanstalk-express-js-sample ) has a Jenkinsfile that could be used with "Pipeline script from SCM". 
+		- [Getting started with pipeline guide](https://www.jenkins.io/doc/book/pipeline/getting-started/#through-the-classic-ui)
 
 ## How to Uninstall
 1. To bring it all down use the command, ```docker compose down```
@@ -65,6 +72,7 @@ This assignment was made possible by referring to the following references for i
 - "Troubleshooting Jenkins Pipeline Failure Issues." 2022, accessed 28 September 2022, 2022, https://docs.bmc.com/docs/brid213/troubleshooting-jenkins-pipeline-failure-issues-1056381771.html.
 - Solutions, Android and Tech. "How to Install Jenkins in Aws Ec2 Ubuntu Instance." YouTube, 29 September 2022 2019. https://www.youtube.com/watch?v=8s71mIOpOAI&t=240s&ab_channel=AndroidandTechSolutions.
 - Step, Automation Step by. "Jenkinsfile Beginner Tutorial 1 | What Is Jenkinsfile | How to Create Jenkinsfile | Step by Step." YouTube, 29 September 2022 2021. https://www.youtube.com/watch?v=RsD2nzPY0is&ab_channel=AutomationStepbyStep.
+- "Run Jenkins in a Docker Container — Part 1 — Docker-in-Docker." 2020, accessed 01 October 2022, 2022, https://davelms.medium.com/run-jenkins-in-a-docker-container-part-1-docker-in-docker-7ca75262619d.
 
 
 
