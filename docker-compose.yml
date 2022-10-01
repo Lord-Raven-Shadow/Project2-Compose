@@ -5,11 +5,12 @@ services:
     user: root
     privileged: true
     container_name: dind
-    alias: test_dind
     expose:
       - 2376
     networks:
-      - jenkins_dind
+      jenkins_dind:
+        aliases:
+          - test_dind
     environment:
       DOCKER_TLS_CERTDIR: ""
 
