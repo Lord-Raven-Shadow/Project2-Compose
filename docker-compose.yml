@@ -2,7 +2,7 @@
 version: '3.7'
 services:
 
-  docker_in_docker:
+  docker:
     image: docker:dind
     user: root
     privileged: true
@@ -12,7 +12,11 @@ services:
     networks:
       - jenkins_docker_in_docker
     environment:
-      DOCKER_TLS_CERTDIR: ""
+      DOCKER_TLS_CERTDIR: /certs
+    volumes:
+      - 'docker-certs-ca:/certs/ca'
+      - 'docker-certs-client:/certs/client'
+      - 'jenkins-data:/var/jenkins_home'
 
   jenkins:
     image: jenkins/jenkins:lts
@@ -24,11 +28,14 @@ services:
     ports:
       - 8080:8080
       - 50000:50000
-    volumes:
-      - ./jenkins: /var/jenkins_home
-      - /usr/bin/docker: /usr/bin/docker
     environment:
-      DOCKER_HOST: "tcp://docker_in_docker:2376"
+      - 'DOCKER_HOST=tcp://docker:2376'
+      - DOCKER_CERT_PATH=/certs/client
+      - DOCKER_TLS_VERIFY=1
+    volumes:
+      - 'docker-certs-client:/certs/client:ro'
+      - 'jenkins-data:/var/jenkins_home'
+      - '/usr/bin/docker:/usr/bin/docker'
     networks:
       - jenkins_docker_in_docker
 
