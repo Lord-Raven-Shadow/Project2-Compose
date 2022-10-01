@@ -1,8 +1,8 @@
 version: '3.8'
 
 services:
-  dind:
-    container_name: jenkins-docker
+  docker_in_docker:
+    container_name: jenkins_docker_in_docker
     image: docker:dind
     user: root
     privileged: true
@@ -12,8 +12,9 @@ services:
         aliases:
           - docker
     volumes:
-      - data:/var/jenkins_home
-      - certs:/certs/client
+      - docker-certs-ca:/certs/ca 
+      - docker-certs-client:/certs/client
+      - jenkins-data:/var/jenkins_home
     environment:
       - DOCKER_TLS_CERTDIR=/certs
     
@@ -30,8 +31,8 @@ services:
       - 8080:8080
       - 50000:50000
     volumes:
-      - data:/var/jenkins_home
-      - certs:/certs/client:ro
+      - docker-certs-client:/certs/client:ro
+      - jenkins-data:/var/jenkins_home
       - '/usr/bin/docker:/usr/bin/docker'
     environment:
       - DOCKER_HOST=tcp://docker:2376
@@ -43,7 +44,10 @@ networks:
     name: jenkins
     
 volumes:
-  data:
+  docker-certs-ca:
+    name: docker-certs-ca
+  jenkins-data:
     name: jenkins-data
-  certs:
+  docker-certs-client:
     name: jenkins-docker-certs
+   
